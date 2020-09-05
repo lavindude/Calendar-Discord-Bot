@@ -41,7 +41,7 @@ async def on_message(message):
         text = ''
         events = list(cur.fetchall())
         for item in events:
-            text += str(item[0]) + ' ' + str(item[1]) + ' ' + str(item[2]) + '\n'
+            text += str(item[0]) + ' <> ' + str(item[1]) + ' <> ' + str(item[2]) + '\n'
         channel = "Events for " + str(message.channel)
         embed = discord.Embed(title=channel, description="")
         embed.add_field(name="", value=text)
