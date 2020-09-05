@@ -18,17 +18,20 @@ async def on_message(message):
 
     #example: !addEvent 1.2 HW 9/4/2020
     elif message.content.startswith('!addEvent'):
-        split = message.content.split()
-        event = split[1 : len(split) - 1]
-        event = ' '.join(event)
-        subject = str(message.channel)
-        date = split[len(split) - 1]
+        try:
+            split = message.content.split()
+            event = split[1 : len(split) - 1]
+            event = ' '.join(event)
+            subject = str(message.channel)
+            date = split[len(split) - 1]
 
-        cur.execute('INSERT INTO events (date, event, class) VALUES (%s, %s, %s)', [date, event, subject])
-        conn1.commit()
+            cur.execute('INSERT INTO events (date, event, class) VALUES (%s, %s, %s)', [date, event, subject])
+            conn1.commit()
 
-        combined = event + ' added to ' + subject
-        await message.channel.send(combined)
+            combined = event + ' added to ' + subject
+            await message.channel.send(combined)
+        except:
+            await message.channel.send("I do not understand that.")
 
     elif message.content == '!commands':
         embed = discord.Embed(title="Commands for CalendarBot", description="", colour=0xd10a07)
