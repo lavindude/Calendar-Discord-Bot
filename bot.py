@@ -3,7 +3,7 @@ import psycopg2
 
 client = discord.Client()
 
-conn1 = psycopg2.connect(database='d3gim4od22u70o', host='ec2-34-195-115-225.compute-1.amazonaws.com', user='uwdxomcngaxujy', password='87644d20c538929faf4ce81cb95396ae3441f7adb21c43a9f47bf832e7b40a25')
+conn1 = psycopg2.connect(*****)
 cur = conn1.cursor()
 
 @client.event
@@ -51,4 +51,4 @@ async def on_message(message):
         await message.channel.send(text)
     conn1.commit()
 
-client.run('NzUxNTc2MTg2NTE3MTkyNzk4.X1LF3g.mTkba5RWtP93fwDcxVxvJ3c7C-I')
+client.run(token)
